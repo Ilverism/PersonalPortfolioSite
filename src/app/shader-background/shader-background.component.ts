@@ -161,26 +161,23 @@ export class ShaderBackgroundComponent implements OnInit {
           float y = vUv.y;
 
           //Position of current point
-          vec2 st = vec2(x, y);
-          st.y -= (time * 8.00);
-          st *= 0.50;
+          vec2 pos = vec2(x, y);
+          vec2 posIni = pos;
+          pos.y -= (time * 8.00);
+          pos *= 5.00;
 
           //Initialize Variables
           vec3 color = vec3(0.00);
-          vec2 pos = vec2(st * 10.0);
           
           //Add a random position
-          float DF = 0.50;
-          float a = 0.00;
-          float T = mix(-10.00, 10.000, time*6.28318530718);
-          vec2 vel = vec2(T);
-          DF += snoise(pos) * 1.00;
+          float DF = 0.50 + snoise(pos);
 
           //Add a random position (p2)
-          pos -= vel;
-          a = snoise(pos*vec2(0.50,sin(time*1.00))*0.20)*3.1415;
-          //a = snoise(pos*vec2(cos(time*1.00),sin(time*1.00))*0.20)*3.1415;
-          vel = vec2(cos(a), sin(a));
+
+          float sinTime =1.0;// sin(time);
+          //float cosTime = cos(time);
+          //float a = snoise(pos * vec2(0.50, sinTime) * 0.20) * 3.1415;
+          float a = snoise(posIni * sin(5.00*time) * sin(time) ) * 3.1415;
           
           //Get pixel value
           float d = smoothstep(0.00, 1.00, fract(DF - a));
@@ -223,11 +220,9 @@ export class ShaderBackgroundComponent implements OnInit {
       requestAnimationFrame(animate);
 
       // Update the time uniform
-      const elapsedTime = (Date.now() - startTime) * 0.00_001; // Time in seconds
+      const elapsedTime = ((Date.now() - startTime) * 0.00_001); // Time in seconds
       material.uniforms['time'].value = elapsedTime;
 
-
-      //renderer.render(scene, camera);
       composer.render();
     };
 
