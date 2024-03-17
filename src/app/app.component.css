@@ -5,3 +5,24 @@ html, body {
     height: 10%;
   }
   
+app-shader-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Ensure it sits above the shader */
+    color: white;
+    font: 2em sans-serif;
+}
