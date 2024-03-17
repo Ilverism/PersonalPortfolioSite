@@ -213,6 +213,8 @@ export class ShaderBackgroundComponent implements OnInit {
     this.scene.add(plane);
     this.camera.position.set(0, 0, 1);
     this.camera.aspect = aspect;
+    this.camera.updateProjectionMatrix();
+    this.renderer.setPixelRatio(window.devicePixelRatio);
 
     const startTime = Date.now();
     const animate = () => {
@@ -234,6 +236,7 @@ export class ShaderBackgroundComponent implements OnInit {
     var aspect:number = (window.innerWidth / window.innerHeight);
     this.camera.aspect = aspect;
     this.camera.updateProjectionMatrix();
+    this.renderer.setPixelRatio(window.devicePixelRatio);
     
     this.renderer.setSize(window.innerWidth, window.innerHeight);
   }

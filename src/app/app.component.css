@@ -26,12 +26,13 @@ app-shader-background {
     align-items: center;
     z-index: 1; /* Ensure it sits above the shader */
     color: white;
-    font: 8em sans-serif;
+    font: 3vw sans-serif;
 }
 
 
 .grid-container {
     display: grid;
     grid-template-columns: 1fr; /* Single column layout */
-    gap: 10px; /* This creates space between the grid items */
+    gap: 1vw; /* This creates space between the grid items */
+    align-content: left;
   }  
