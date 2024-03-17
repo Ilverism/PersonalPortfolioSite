@@ -25,6 +25,8 @@ export class ShaderBackgroundComponent implements OnInit {
   private renderer!: THREE.WebGLRenderer;
   private scene!: THREE.Scene;
   private camera!: THREE.PerspectiveCamera;
+  private plane!: THREE.Mesh;
+  private baseSize:number = 2;
 
   ngOnInit() {
 
@@ -35,7 +37,8 @@ export class ShaderBackgroundComponent implements OnInit {
     // Your Three.js initialization code here
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    this.renderer = new THREE.WebGLRenderer({antialias: true});
+    this.renderer = new THREE.WebGLRenderer({antialias: false});
+    //this.renderer = new THREE.WebGLRenderer({antialias: true});
 
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.containerRef.nativeElement.appendChild(this.renderer.domElement);
@@ -44,53 +47,53 @@ export class ShaderBackgroundComponent implements OnInit {
     composer.addPass(new RenderPass(this.scene, this.camera));
 
 
-    //Blur Shader
-    const blurShader = {
-      uniforms: {
-          "tDiffuse": { value: null },
-          "resolution": { value: new THREE.Vector2() },
-          "radius": { value: 0.5 }
-      },
-      vertexShader: `
-          varying vec2 vUv;
-          void main() {
-              vUv = uv;
-              gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-          }
-      `,
-      fragmentShader: `
-      uniform sampler2D tDiffuse;
-      uniform vec2 resolution;
-      uniform float radius;
+    // //Blur Shader
+    // const blurShader = {
+    //   uniforms: {
+    //       "tDiffuse": { value: null },
+    //       "resolution": { value: new THREE.Vector2() },
+    //       "radius": { value: 0.5 }
+    //   },
+    //   vertexShader: `
+    //       varying vec2 vUv;
+    //       void main() {
+    //           vUv = uv;
+    //           gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    //       }
+    //   `,
+    //   fragmentShader: `
+    //   uniform sampler2D tDiffuse;
+    //   uniform vec2 resolution;
+    //   uniform float radius;
       
-      varying vec2 vUv;
+    //   varying vec2 vUv;
       
-      void main() {
-          vec2 uv = vUv;
-          vec2 texelSize = 1.0 / resolution;
-          vec4 result = vec4(0.0);
-          float weightSum = 0.0;
+    //   void main() {
+    //       vec2 uv = vUv;
+    //       vec2 texelSize = 1.0 / resolution;
+    //       vec4 result = vec4(0.0);
+    //       float weightSum = 0.0;
       
-          for(int i = -8; i <= 8; i++) {
-              for(int j = -8; j <= 8; j++) {
-                  vec2 offset = vec2(float(i), float(j)) * texelSize * radius;
-                  float weight = exp(-0.5 * (pow(offset.x * resolution.x / radius, 2.0) + pow(offset.y * resolution.y / radius, 2.0)));
-                  result += texture2D(tDiffuse, uv + offset) * weight;
-                  weightSum += weight;
-              }
-          }
+    //       for(int i = -8; i <= 8; i++) {
+    //           for(int j = -8; j <= 8; j++) {
+    //               vec2 offset = vec2(float(i), float(j)) * texelSize * radius;
+    //               float weight = exp(-0.5 * (pow(offset.x * resolution.x / radius, 2.0) + pow(offset.y * resolution.y / radius, 2.0)));
+    //               result += texture2D(tDiffuse, uv + offset) * weight;
+    //               weightSum += weight;
+    //           }
+    //       }
       
-          gl_FragColor = result / weightSum;
-      }
+    //       gl_FragColor = result / weightSum;
+    //   }
       
-      `
-    };
+    //   `
+    // };
   
     
-    const blurPass = new ShaderPass(blurShader);
-    blurPass.uniforms["resolution"].value = new THREE.Vector2(window.innerWidth, window.innerHeight);
-    blurPass.uniforms["radius"].value = 2.0;
-    composer.addPass(blurPass);
+    // const blurPass = new ShaderPass(blurShader);
+    // blurPass.uniforms["resolution"].value = new THREE.Vector2(window.innerWidth, window.innerHeight);
+    // blurPass.uniforms["radius"].value = 2.0;
+    // composer.addPass(blurPass);
 
     
     //Shader Material and other Three.js setup...
@@ -202,18 +205,14 @@ export class ShaderBackgroundComponent implements OnInit {
 
     
     //Create Plane Geometry that is guaranteed to fill the screen
-    var baseSize:number = 2;
-    var aspect = window.innerWidth / window.innerHeight;
-    const planeGeometry = (
-      (aspect > 1.00)
-      ? new THREE.PlaneGeometry(baseSize*aspect, baseSize)
-      : new THREE.PlaneGeometry(baseSize, baseSize*aspect)
-      );
+    var aspect:number = (window.innerWidth / window.innerHeight);
+
+    const planeGeometry = new THREE.PlaneGeometry(this.baseSize*aspect, this.baseSize, 1, 1);
+    
     const plane = new THREE.Mesh(planeGeometry, material);
     this.scene.add(plane);
-
-    //camera.position.z = 1;
     this.camera.position.set(0, 0, 1);
+    this.camera.aspect = aspect;
 
     const startTime = Date.now();
     const animate = () => {
@@ -231,8 +230,11 @@ export class ShaderBackgroundComponent implements OnInit {
   
   @HostListener('window:resize')
   onResize() {
-    this.camera.aspect = window.innerWidth / window.innerHeight;
+    
+    var aspect:number = (window.innerWidth / window.innerHeight);
+    this.camera.aspect = aspect;
     this.camera.updateProjectionMatrix();
+    
     this.renderer.setSize(window.innerWidth, window.innerHeight);
   }
 
