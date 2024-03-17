@@ -13,6 +13,8 @@ app-shader-background {
     height: 100%;
 }
 
+
+
 .overlay-content {
     position: absolute;
     top: 0;
@@ -26,3 +28,10 @@ app-shader-background {
     color: white;
     font: 8em sans-serif;
 }
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 10px; /* This creates space between the grid items */
+  }  

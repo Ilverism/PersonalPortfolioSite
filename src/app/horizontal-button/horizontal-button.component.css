@@ -1,0 +1,53 @@
+#container {
+
+    --padding-horizontal: 32px;
+    --padding-vertical: 64px;
+
+    cursor: pointer;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: var(--padding-horizontal) var(--padding-vertical); /* Add padding */
+    border: none;
+    position: relative;
+
+    }
+
+#block {    
+    
+    background-color: c_white;
+    opacity : 0.60;
+    border-radius: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    }
+#container:hover #block {
+
+    scale: 1.05;
+    opacity:  1.00;
+    transition: 0.20s;
+
+    }
+#container:not(hover) #block {
+
+    scale: 1.00;
+    opacity:  0.60;
+    transition: 0.50s;
+
+    }
+    
+
+#text {
+
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    z-index: 1;
+
+    }

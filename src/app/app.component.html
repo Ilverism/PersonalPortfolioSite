@@ -1,6 +1,39 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="fullscreen-container">
     <app-shader-background></app-shader-background>
     <div class="overlay-content">
-        <p>Ilverism.</p>
+        <section>
+            
+        </section>
+        <div class="grid-container">
+            <h1>Ilverism.</h1>
+            <div class="grid-container">
+                <app-horizontal-button
+                    style="margin:0 auto; margin-block: 30px;"
+                    [buttonText]="'LinkedIn'"
+                    [buttonColor]="'rgba(0, 123, 181, 1.00)'"
+                    [buttonOpacity]="0.0"
+                    iconClass="fab fa-linkedin"
+                    (click)="onClickLinkedIn($event)">
+                </app-horizontal-button>
+                <app-horizontal-button
+                    style="margin:0 auto; margin-block: 30px;"
+                    [buttonText]="'GitHub'"
+                    [buttonColor]="'rgba(36, 41, 46, 1.00)'"
+                    [buttonOpacity]="0.0"
+                    iconClass="fab fa-github"
+                    (click)="onClickGitHub($event)">
+                </app-horizontal-button>
+                <app-horizontal-button
+                    style="margin:0 auto; margin-block: 30px;"
+                    [buttonText]="'Music'"
+                    [buttonColor]="'rgba(255, 0, 0, 1.00)'"
+                    [buttonOpacity]="0.0"
+                    iconClass="fab fa-youtube"
+                    (click)="onClickYouTube($event)">
+                </app-horizontal-button>
+            </div>
+        </div>
     </div>
 </div>
