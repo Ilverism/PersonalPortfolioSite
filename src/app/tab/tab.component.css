@@ -1,0 +1,61 @@
+#container {
+
+    --padding-horizontal: 1.5vw;
+    --padding-vertical: 2vw;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center; /* This keeps everything vertically centered */
+    padding: var(--padding-vertical) var(--padding-horizontal);
+    border: none;
+    position: relative;
+    width: 90%;
+
+    }
+
+#block {
+    
+    margin: auto;
+    opacity: 0.60;
+    border-radius: 2vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: transform 0.20s, opacity 0.20s; /* Apply transition to transform and opacity */
+    z-index: 0;
+    
+    }
+
+#container:hover #block {
+    transform: scale(1.05); /* Use transform property for scaling */
+    opacity: 1.00;
+    }
+
+#container:not(:hover) #block {
+    transition: transform 0.50s, opacity 0.50s; /* Apply transition to transform and opacity */
+    }
+    
+
+#icon, #text, #fold-arrow {
+    user-select: none; /* Prevent text selection */
+    flex : 1;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    z-index: 1;
+}
+
+#icon {
+    justify-content: flex-start; /* Align icon to the left */
+}
+
+#text {
+    justify-content: center; /* Center the text label */
+}
+
+#fold-arrow {
+    justify-content: flex-end; /* Align fold arrow to the right */
+    text-align: right; /* Ensure the text inside is right-aligned if needed */
+}

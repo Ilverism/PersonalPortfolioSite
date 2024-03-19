@@ -1,39 +1,58 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
 <div class="fullscreen-container">
     <app-shader-background></app-shader-background>
     <div class="overlay-content">
-        <section>
-            
-        </section>
+        
+
         <div class="grid-container">
-            <h1>Ilverism.</h1>
-            <div class="grid-container">
-                <app-horizontal-button
-                    style="margin:0 auto; margin-block: 1vw;"
-                    [buttonText]="'LinkedIn'"
-                    [buttonColor]="'rgba(0, 123, 181, 1.00)'"
-                    [buttonOpacity]="0.0"
-                    iconClass="fab fa-linkedin"
-                    (click)="onClickLinkedIn($event)">
-                </app-horizontal-button>
-                <app-horizontal-button
-                    style="margin:0 auto; margin-block: 1vw;"
-                    [buttonText]="'GitHub'"
-                    [buttonColor]="'rgba(36, 41, 46, 1.00)'"
-                    [buttonOpacity]="0.0"
-                    iconClass="fab fa-github"
-                    (click)="onClickGitHub($event)">
-                </app-horizontal-button>
-                <app-horizontal-button
-                    style="margin:0 auto; margin-block: 1vw;"
-                    [buttonText]="'Music'"
-                    [buttonColor]="'rgba(255, 0, 0, 1.00)'"
-                    [buttonOpacity]="0.0"
-                    iconClass="fab fa-youtube"
-                    (click)="onClickYouTube($event)">
-                </app-horizontal-button>
-            </div>
+            
+            <pre>
+            </pre>
+            <h4>Ilverism</h4>
+
+            <app-tab
+                [name]="'LinkedIn'"
+                [icon]="'fab fa-linkedin'"
+                [buttonColor]="'rgba(0, 123, 181, 1.00)'"
+                [isExternalLink]="true"
+                (click)="onClickLinkedIn($event)"
+                (outputTabID)="handleTabIDEvent($event)"
+                >
+            </app-tab>
+
+            <app-tab
+                [name]="'GitHub'"
+                [icon]="'fab fa-github'"
+                [buttonColor]="'#333'"
+                [isExternalLink]="true"
+                (outputTabID)="handleTabIDEvent($event)"
+                >
+            </app-tab>
+
+
+            <app-tab
+                [name]="'YouTube'"
+                [icon]="'fab fa-youtube'"
+                [buttonColor]="'rgba(255, 0, 0, 1.00)'"
+                [isExternalLink]="true"
+                (click)="onClickYouTube($event)"
+                (outputTabID)="handleTabIDEvent($event)"
+                >
+            </app-tab>
+
+
+            <app-tab
+                [name]="'Test'"
+                [buttonColor]="'lightgray'"
+                [isExternalLink]="false"
+                (outputTabID)="handleTabIDEvent($event)"
+                >
+            </app-tab>
+
+            <h5>{{tabIDSelected}}</h5>
+
         </div>
     </div>
 </div>
