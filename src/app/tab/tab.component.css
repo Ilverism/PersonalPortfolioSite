@@ -10,7 +10,11 @@
     padding: var(--padding-vertical) var(--padding-horizontal);
     border: none;
     position: relative;
-    width: 90%;
+    /*width: 90%;*/
+    width : 50%;
+
+    margin-top: 1vw;
+    margin-left:2vw;
 
     }
 

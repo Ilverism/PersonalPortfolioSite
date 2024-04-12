@@ -5,49 +5,61 @@
     <app-shader-background></app-shader-background>
     <div class="overlay-content">
 
-        <div class="grid-container">
-
-            <app-tab
-                [name]="'LinkedIn'"
-                [icon]="'fab fa-linkedin'"
-                [buttonColor]="'rgba(0, 123, 181, 1.00)'"
-                [isExternalLink]="true"
-                (click)="onClickLinkedIn($event)"
-                (outputTabID)="handleTabIDEvent($event)"
-                >
-            </app-tab>
-
-            <app-tab
-                [name]="'GitHub'"
-                [icon]="'fab fa-github'"
-                [buttonColor]="'#333'"
-                [isExternalLink]="true"
-                (outputTabID)="handleTabIDEvent($event)"
-                >
-            </app-tab>
+        <ng-scrollbar
+            [position]="'invertY'"
+            [appearance]="'compact'"
+            >
+        <div class="scrollbar-elements">
 
 
-            <app-tab
-                [name]="'Music'"
-                [icon]="'fab fa-youtube'"
-                [buttonColor]="'rgba(255, 0, 0, 1.00)'"
-                [isExternalLink]="true"
-                (click)="onClickYouTube($event)"
-                (outputTabID)="handleTabIDEvent($event)"
-                >
-            </app-tab>
+                <app-tab
+                    [name]="'About Me'"
+                    [buttonColor]="'lightgray'"
+                    [isExternalLink]="false"
+                    (outputTabID)="handleTabIDEvent($event)"
+                    >
+                </app-tab>
+
+                <app-tab
+                    [name]="'LinkedIn'"
+                    [icon]="'fab fa-linkedin'"
+                    [buttonColor]="'rgba(0, 123, 181, 1.00)'"
+                    [isExternalLink]="true"
+                    (click)="onClickLinkedIn($event)"
+                    (outputTabID)="handleTabIDEvent($event)"
+                    >
+                </app-tab>
+
+                <app-tab
+                    [name]="'GitHub'"
+                    [icon]="'fab fa-github'"
+                    [buttonColor]="'#333'"
+                    [isExternalLink]="true"
+                    (outputTabID)="handleTabIDEvent($event)"
+                    >
+                </app-tab>
 
 
-            <app-tab
-                [name]="'Test'"
-                [buttonColor]="'lightgray'"
-                [isExternalLink]="false"
-                (outputTabID)="handleTabIDEvent($event)"
-                >
-            </app-tab>
+                <app-tab
+                    [name]="'Music'"
+                    [icon]="'fab fa-youtube'"
+                    [buttonColor]="'rgba(255, 0, 0, 1.00)'"
+                    [isExternalLink]="true"
+                    (click)="onClickYouTube($event)"
+                    (outputTabID)="handleTabIDEvent($event)"
+                    >
+                </app-tab>
 
-            <h5>{{tabIDSelected}}</h5>
+                
+                <app-tab
+                    [name]="'Test'"
+                    [buttonColor]="'lightgray'"
+                    [isExternalLink]="false"
+                    (outputTabID)="handleTabIDEvent($event)"
+                    >
+                </app-tab>
 
         </div>
+        </ng-scrollbar>
     </div>
 </div>
