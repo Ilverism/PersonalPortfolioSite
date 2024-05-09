@@ -26,53 +26,53 @@ export class PanelShaderComponent extends PanelComponent {
   nubs: ShaderNubData[] = [
     {
       name : "N I H I L I S M",
-      vertexShaderFilepath : "../assets/shaders/shd_Default.vert",
-      fragmentShaderFilepath : "../assets/shaders/shd_Nihilism.frag",
+      vertexShaderFilepath : "assets/shaders/shd_Default.vert",
+      fragmentShaderFilepath : "assets/shaders/shd_Nihilism.frag",
     },
     {
       name: "I N N E R - F I R E",
-      vertexShaderFilepath : "../assets/shaders/shd_Default.vert",
-      fragmentShaderFilepath: "../assets/shaders/shd_InnerFire.frag",
+      vertexShaderFilepath : "assets/shaders/shd_Default.vert",
+      fragmentShaderFilepath: "assets/shaders/shd_InnerFire.frag",
     },
     {
       name: "T H R U S T E R S",
-      vertexShaderFilepath : "../assets/shaders/shd_Default.vert",
-      fragmentShaderFilepath: "../assets/shaders/shd_Thrusters.frag",
+      vertexShaderFilepath : "assets/shaders/shd_Default.vert",
+      fragmentShaderFilepath: "assets/shaders/shd_Thrusters.frag",
     },
     {
       name: "R O C K E T",
-      vertexShaderFilepath : "../assets/shaders/shd_Default.vert",
-      fragmentShaderFilepath: "../assets/shaders/shd_Rocket.frag",
+      vertexShaderFilepath : "assets/shaders/shd_Default.vert",
+      fragmentShaderFilepath: "assets/shaders/shd_Rocket.frag",
     },
     {
       name: "P S I - D R U M",
-      vertexShaderFilepath : "../assets/shaders/shd_Default.vert",
-      fragmentShaderFilepath: "../assets/shaders/shd_PsiDrum.frag",
+      vertexShaderFilepath : "assets/shaders/shd_Default.vert",
+      fragmentShaderFilepath: "assets/shaders/shd_PsiDrum.frag",
     },
     {
       name: "S C A N N E R",
-      vertexShaderFilepath : "../assets/shaders/shd_Default.vert",
-      fragmentShaderFilepath: "../assets/shaders/shd_Scanner.frag",
+      vertexShaderFilepath : "assets/shaders/shd_Default.vert",
+      fragmentShaderFilepath: "assets/shaders/shd_Scanner.frag",
     },
     {
       name: "M A T T E R F L O W E R",
-      vertexShaderFilepath : "../assets/shaders/shd_Default.vert",
-      fragmentShaderFilepath: "../assets/shaders/shd_Matterflower.frag",
+      vertexShaderFilepath : "assets/shaders/shd_Default.vert",
+      fragmentShaderFilepath: "assets/shaders/shd_Matterflower.frag",
     },
     {
       name: "L A T T I C E",
-      vertexShaderFilepath : "../assets/shaders/shd_Default.vert",
-      fragmentShaderFilepath: "../assets/shaders/shd_Lattice.frag",
+      vertexShaderFilepath : "assets/shaders/shd_Default.vert",
+      fragmentShaderFilepath: "assets/shaders/shd_Lattice.frag",
     },
     {
       name: "G A L A C T I C - S E A M",
-      vertexShaderFilepath : "../assets/shaders/shd_Default.vert",
-      fragmentShaderFilepath: "../assets/shaders/shd_GalacticSeam.frag",
+      vertexShaderFilepath : "assets/shaders/shd_Default.vert",
+      fragmentShaderFilepath: "assets/shaders/shd_GalacticSeam.frag",
     },
     {
       name: "T U R B U L E N C E",
-      vertexShaderFilepath : "../assets/shaders/shd_Default.vert",
-      fragmentShaderFilepath: "../assets/shaders/shd_Turbulence.frag",
+      vertexShaderFilepath : "assets/shaders/shd_Default.vert",
+      fragmentShaderFilepath: "assets/shaders/shd_Turbulence.frag",
     },
   ];
 

@@ -13,4 +13,7 @@ export class PanelComponent {
   @Input()
   panelText:string = '';
 
+  @Input()
+  backgroundColor:string = '#000000EE';
+
   }

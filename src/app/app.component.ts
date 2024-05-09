@@ -49,6 +49,7 @@ export class AppComponent {
   }
   
   panelText:string = "Hello! Welcome to my website!\n\nClick the buttons on the left to view additional information and content.\n\nButtons marked with (↗) will open a new tab in your browser.";
+  tabDescriptionText:string = "''";
 
   tabIDSelected: number = 0;
 
@@ -57,10 +58,17 @@ export class AppComponent {
   onMouseEnter() { this.hovering = true; }
   onMouseLeave() { this.hovering = false; }
 
-  //Button Click Functions
-
+  //Button Click/Hover Functions
   handlePanelTextEvent(event:string) {
     this.panelText = event;
+    this.handleClearTabDescriptionEvent("");
+    }
+
+  handleTabDescriptionEvent(event:string) {
+    this.tabDescriptionText = event;
+    }
+  handleClearTabDescriptionEvent(event:string) {
+    this.tabDescriptionText = "''";
     }
 
   onClickShaders(event: Event) {

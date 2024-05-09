@@ -21,6 +21,9 @@
                     [buttonColor]="'lightgray'"
                     [isExternalLink]="false"
                     (outputTabID)="handleTabIDEvent($event)"
+                    [description]="'About Me...'"
+                    (panelDescriptionOut)="handleTabDescriptionEvent($event)"
+                    (panelDescriptionClear)="handleClearTabDescriptionEvent($event)"
                     >
                 </app-tab>
 
@@ -33,6 +36,9 @@
                     [isExternalLink]="false"
                     [clickEvent]="onClickShaders"
                     (outputTabID)="handleTabIDEvent($event)"
+                    [description]="'View a selection of some of my favorite 2D shaders (programatically-generated effects).\n\nYou can hover over the preview images to animate them, and scroll down to view more.'"
+                    (panelDescriptionOut)="handleTabDescriptionEvent($event)"
+                    (panelDescriptionClear)="handleClearTabDescriptionEvent($event)"
                     >
                 </app-tab>
 
@@ -43,6 +49,9 @@
                     [isExternalLink]="true"
                     [clickEvent]="onClickRingWar"
                     (outputTabID)="handleTabIDEvent($event)"
+                    [description]="'View the Steam page for my first publically-released game, Ring War.\n\nRing War is a 2D top-down online multiplayer shooter with a focus on fast-paced and strategic gameplay. Players can battle against up to 15 other human or AI opponents, or alongside them as teammates.\n\nThe game entered Early Access in 2022, and remains in development between other projects.'"
+                    (panelDescriptionOut)="handleTabDescriptionEvent($event)"
+                    (panelDescriptionClear)="handleClearTabDescriptionEvent($event)"
                     >
                 </app-tab>
 
@@ -82,7 +91,10 @@
 
         </ng-scrollbar>
 
-        <div [ngSwitch]="this.panelTypeTargetName">
+
+        <app-panel *ngIf="tabDescriptionText!='\'\''" [panelText]="tabDescriptionText" [backgroundColor]="'#111111EE'"></app-panel>
+
+        <div [hidden]="tabDescriptionText!='\'\''" [ngSwitch]="this.panelTypeTargetName">
             <app-panel-shader *ngSwitchCase="'shaderPanel'" [panelText]="panelText"></app-panel-shader>
             <app-panel *ngSwitchDefault [panelText]="panelText"></app-panel>
         </div>

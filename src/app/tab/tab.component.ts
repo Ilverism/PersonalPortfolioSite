@@ -35,6 +35,16 @@ export class TabComponent {
     this.panelTextOut.emit(this.panelText);
     }
 
+  @Input() description:string = "Click here to view...";
+  @Output() panelDescriptionOut = new EventEmitter<string>();
+  emitPanelDescription() {
+    this.panelDescriptionOut.emit(this.description);
+    }
+  @Output() panelDescriptionClear = new EventEmitter<string>();
+  emitClearPanelDescription() {
+    this.panelDescriptionClear.emit();
+    }
+
   @Input() name:string = "Tab";
   @Input() iconDef:IconProp = faCoffee;
   @Input() iconUrl:string = "";
@@ -47,6 +57,7 @@ export class TabComponent {
     console.log("Emitting Tab ID: " + this.tabID);
     this.outputTabID.emit(String(this.tabID));
     }
+
 
 
   }

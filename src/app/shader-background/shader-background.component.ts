@@ -30,8 +30,8 @@ export class ShaderBackgroundComponent implements OnInit {
     if (isPlatformBrowser(this.platformId) == false)
       return;
 
-    const vertexShaderPath = '../assets/shaders/shd_Nihilism.vert';
-    const fragmentShaderPath = '../assets/shaders/shd_Nihilism.frag';
+    const vertexShaderPath = 'assets/shaders/shd_Nihilism.vert';
+    const fragmentShaderPath = 'assets/shaders/shd_Nihilism.frag';
 
     Promise.all([
       this.loadShader(vertexShaderPath),

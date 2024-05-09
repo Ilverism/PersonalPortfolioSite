@@ -1,6 +1,6 @@
-<div id="container" (click)="emitTabID()" class="app-tab" (click)="onTabClick()">
+<div id="container" (click)="emitTabID()" class="app-tab" (click)="onTabClick()" (mouseleave)="emitClearPanelDescription();">
     
-    <div id="block" [style.background-color]="buttonColor"></div>
+    <div id="block" [style.background-color]="buttonColor" (mouseenter)="emitPanelDescription()"></div>
 
     <ng-template [ngIf]="(iconUrl==='')">
         <fa-icon [icon]="iconDef" id="icon"></fa-icon>
