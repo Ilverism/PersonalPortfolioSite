@@ -1,0 +1,20 @@
+<div class="panel-face">
+    <div class="panel-text" style="white-space: pre-wrap;">
+
+        {{panelText}}
+
+        <ng-scrollbar class="scrollable-content">
+            <div *ngFor="let nub of nubs;" style="scale:0.90">
+                <app-shader-nub
+                    [name]="nub.name"
+                    [vertexShaderFilepath]="nub.vertexShaderFilepath"
+                    [fragmentShaderFilepath]="nub.fragmentShaderFilepath"
+                    >
+                </app-shader-nub>
+                <br>
+            </div> 
+        </ng-scrollbar>
+
+    </div>
+</div>
+

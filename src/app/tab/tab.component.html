@@ -1,15 +1,23 @@
-<div id="container"
-    (click)="emitTabID()"
-    class="app-tab">
+<div id="container" (click)="emitTabID()" class="app-tab" (click)="onTabClick()">
+    
+    <div id="block" [style.background-color]="buttonColor"></div>
 
-    <div id="block"
-        [style.background-color]="buttonColor"
-    ></div>
-    <div id="icon"><i [class]=icon></i></div>
-    <div id="text"> {{ name }} </div>
+    <ng-template [ngIf]="(iconUrl==='')">
+        <fa-icon [icon]="iconDef" id="icon"></fa-icon>
+    </ng-template>
+
+
+    <ng-template [ngIf]="(iconUrl!=='')">
+        <img id="iconImage" [src]="iconUrl">
+    </ng-template>
+
+
+    <div id="text">{{ name }}</div>
+
     <ng-template [ngIf]="(isExternalLink===true)">
         <div id="fold-arrow">⬈</div>
     </ng-template>
+
     <ng-template [ngIf]="(isExternalLink===false)">
         <div id="fold-arrow">▻</div>
     </ng-template>

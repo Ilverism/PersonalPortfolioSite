@@ -1,19 +1,23 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
 <div class="fullscreen-container">
+
     <app-shader-background></app-shader-background>
-    <div class="overlay-content">
+
+    <div class="overlay-content" style="scale:0.90">
 
         <ng-scrollbar
             [position]="'invertY'"
             [appearance]="'compact'"
             >
-        <div class="scrollbar-elements">
+        
+            <div class="scrollbar-elements">
 
+                <br style="display:block; margin:5.0dvh 0;"/>
 
                 <app-tab
-                    [name]="'About Me'"
+                    [name]="'About'"
+                    [panelText]="'[TODO: Display About Page...]'"
+                    (panelTextOut)="handlePanelTextEvent($event)"
+                    [iconDef]="faUser"
                     [buttonColor]="'lightgray'"
                     [isExternalLink]="false"
                     (outputTabID)="handleTabIDEvent($event)"
@@ -21,20 +25,43 @@
                 </app-tab>
 
                 <app-tab
+                    [name]="'Shaders'"
+                    [panelText]="''"
+                    (panelTextOut)="handlePanelTextEvent($event)"
+                    [iconUrl] = "'assets/images/ShaderIconAlt.png'"
+                    [buttonColor]="'gray'"
+                    [isExternalLink]="false"
+                    [clickEvent]="onClickShaders"
+                    (outputTabID)="handleTabIDEvent($event)"
+                    >
+                </app-tab>
+
+                <app-tab
+                    [name]="'Ring War'"
+                    [iconDef]="faSteam"
+                    [buttonColor]="'#171a21'"
+                    [isExternalLink]="true"
+                    [clickEvent]="onClickRingWar"
+                    (outputTabID)="handleTabIDEvent($event)"
+                    >
+                </app-tab>
+
+                <app-tab
                     [name]="'LinkedIn'"
-                    [icon]="'fab fa-linkedin'"
+                    [iconDef]="faLinkedin"
                     [buttonColor]="'rgba(0, 123, 181, 1.00)'"
                     [isExternalLink]="true"
-                    (click)="onClickLinkedIn($event)"
+                    [clickEvent]="onClickLinkedIn"
                     (outputTabID)="handleTabIDEvent($event)"
                     >
                 </app-tab>
 
                 <app-tab
                     [name]="'GitHub'"
-                    [icon]="'fab fa-github'"
+                    [iconDef]="faGithub"
                     [buttonColor]="'#333'"
                     [isExternalLink]="true"
+                    [clickEvent]="onClickGitHub"
                     (outputTabID)="handleTabIDEvent($event)"
                     >
                 </app-tab>
@@ -42,24 +69,23 @@
 
                 <app-tab
                     [name]="'Music'"
-                    [icon]="'fab fa-youtube'"
+                    [iconDef]="faYoutube"
                     [buttonColor]="'rgba(255, 0, 0, 1.00)'"
                     [isExternalLink]="true"
-                    (click)="onClickYouTube($event)"
+                    [clickEvent]="onClickYouTube"
                     (outputTabID)="handleTabIDEvent($event)"
                     >
                 </app-tab>
 
-                
-                <app-tab
-                    [name]="'Test'"
-                    [buttonColor]="'lightgray'"
-                    [isExternalLink]="false"
-                    (outputTabID)="handleTabIDEvent($event)"
-                    >
-                </app-tab>
+                <br style="display:block; margin:5.0dvh 0;"/>
+            </div>
 
-        </div>
         </ng-scrollbar>
+
+        <div [ngSwitch]="this.panelTypeTargetName">
+            <app-panel-shader *ngSwitchCase="'shaderPanel'" [panelText]="panelText"></app-panel-shader>
+            <app-panel *ngSwitchDefault [panelText]="panelText"></app-panel>
+        </div>
+
     </div>
 </div>

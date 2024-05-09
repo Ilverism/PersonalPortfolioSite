@@ -43,7 +43,7 @@
     }
     
 
-#icon, #text, #fold-arrow {
+#icon, #text, #fold-arrow, #iconImage {
     user-select: none; /* Prevent text selection */
     flex : 1;
     display: flex;
@@ -55,8 +55,16 @@
     justify-content: flex-start; /* Align icon to the left */
 }
 
+#iconImage {
+    width: 1.5vw;
+    height: 3.5vw;
+    margin-right: 1vw;
+}
+
 #text {
     justify-content: center; /* Center the text label */
+    text-align: center; /* Ensure the text inside is center-aligned if needed */
+    white-space: nowrap;
 }
 
 #fold-arrow {

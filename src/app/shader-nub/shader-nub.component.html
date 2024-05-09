@@ -1,0 +1,7 @@
+<div class="shader-container" #shaderViewport>
+    <!-- <div id="text"> {{name}} {{isAnimating}}</div> -->
+    <div id="text"> {{name}} </div>
+    <img *ngIf="!isAnimating" class="preview-image" [src]="previewImageSrc" alt=" ">
+    <!-- <img class="preview-image" [src]="previewImageSrc" alt="Shader Preview"> -->
+    <canvas #shaderCanvas></canvas>
+</div>

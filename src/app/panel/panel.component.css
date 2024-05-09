@@ -1,0 +1,28 @@
+.panel-face {
+
+    color:white;
+    background-color: rgb(0 0 0 / 90%);
+
+    border-radius: 10px;
+
+    margin-top: 5dvh;
+    margin-bottom: 5dvh;
+
+    width : 60dvw;
+    height : 90dvh;
+
+    }
+
+.panel-text {
+
+    padding-top:0.5dvw;
+    padding-left:2dvw;
+
+    margin-right: 1dvw;
+
+    color:rgb(230 230 230);
+    text-align: left;
+
+    user-select: none;
+
+    }
