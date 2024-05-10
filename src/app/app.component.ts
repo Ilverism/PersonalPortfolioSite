@@ -49,7 +49,8 @@ export class AppComponent {
     this.onClickShaders = this.onClickShaders.bind(this);
     }
   
-  panelText:string = "Hello! Welcome to my website!\n\nClick the buttons on the left to view additional information and content.\n\nButtons marked with (↗) will open a new tab in your browser.";
+  panelTextDefault:string = "Hello, welcome to my website!\n\nI\'m Aidan Cusack, a computer science student at the Rochester Institute of Technology and game-development hobbyist currently seeking a co-op/paid internship opportunity in related fields.\n\nClick the buttons on the left to view additional information and content.\nButtons marked with (↗) will open a new tab in your browser.";
+  panelText:string = this.panelTextDefault;
   tabDescriptionText:string = "''";
 
   tabIDSelected: number = 0;

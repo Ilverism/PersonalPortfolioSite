@@ -15,7 +15,7 @@
 
                 <app-tab
                     [name]="'About'"
-                    [panelText]="'Hello, welcome to my website!\n\nI\'m Aidan Cusack, a computer science student at the Rochester Institute of Technology and game-development hobbyist currently seeking a co-op/paid internship opportunity in related fields.\n\nClick the buttons on the left to view additional information and content.\n\nButtons marked with (↗) will open a new tab in your browser.'"
+                    [panelText]="panelTextDefault"
                     (panelTextOut)="handlePanelTextEvent($event)"
                     [iconDef]="faUser"
                     [buttonColor]="'lightgray'"
@@ -38,19 +38,6 @@
                     [clickEvent]="onClickShaders"
                     (outputTabID)="handleTabIDEvent($event)"
                     [description]="'Click to view a selection of some of my favorite 2D shaders (programatically-generated effects).\n\nYou can hover over the preview images to animate them, and scroll down to see more.\n\nThe shaders could take a moment to load, and may not display correctly on some devices.'"
-                    (panelDescriptionOut)="handleTabDescriptionEvent($event)"
-                    (panelDescriptionClear)="handleClearTabDescriptionEvent($event)"
-                    >
-                </app-tab>
-
-                <app-tab
-                    [name]="'Ring War'"
-                    [iconDef]="faSteam"
-                    [buttonColor]="'#171a21'"
-                    [isExternalLink]="true"
-                    [clickEvent]="onClickRingWar"
-                    (outputTabID)="handleTabIDEvent($event)"
-                    [description]="'Click to view the Steam page for my first publically-released game, Ring War.\n\nRing War is a 2D top-down online multiplayer shooter with a focus on fast-paced and strategic gameplay. Players can battle against up to 15 other human or AI opponents, or alongside them as teammates.\n\nThe game entered Early Access in 2022, and remains in development between other projects.'"
                     (panelDescriptionOut)="handleTabDescriptionEvent($event)"
                     (panelDescriptionClear)="handleClearTabDescriptionEvent($event)"
                     >
@@ -82,6 +69,18 @@
                     >
                 </app-tab>
 
+                <app-tab
+                    [name]="'Ring War'"
+                    [iconDef]="faSteam"
+                    [buttonColor]="'#171a21'"
+                    [isExternalLink]="true"
+                    [clickEvent]="onClickRingWar"
+                    (outputTabID)="handleTabIDEvent($event)"
+                    [description]="'Click to view the Steam page for my first publically-released game, Ring War.\n\nRing War is a 2D top-down online multiplayer shooter with a focus on fast-paced and strategic gameplay. Players can battle against up to 15 other human or AI opponents, or alongside them as teammates.\n\nThe game entered Early Access in 2022, and remains in development between other projects.'"
+                    (panelDescriptionOut)="handleTabDescriptionEvent($event)"
+                    (panelDescriptionClear)="handleClearTabDescriptionEvent($event)"
+                    >
+                </app-tab>
 
                 <app-tab
                     [name]="'Music'"
@@ -90,7 +89,7 @@
                     [isExternalLink]="true"
                     [clickEvent]="onClickYouTube"
                     (outputTabID)="handleTabIDEvent($event)"
-                    [description]="'Click to view my Official Artist Channel on YouTube.\n\nI create and upload original instrumental music here.'"
+                    [description]="'Click to view my Official Artist Channel on YouTube.\n\nI create original instrumental music and upload it here.'"
                     (panelDescriptionOut)="handleTabDescriptionEvent($event)"
                     (panelDescriptionClear)="handleClearTabDescriptionEvent($event)"
                     >
