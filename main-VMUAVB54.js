@@ -4597,7 +4597,6 @@ Buttons marked with (\u2197) will open a new tab in your browser.`,this.tabDescr
 I'm Aidan Cusack, a computer science student at the Rochester Institute of Technology and game-development hobbyist currently seeking a co-op/paid internship opportunity in related fields.
 
 Click the buttons on the left to view additional information and content.
-
 Buttons marked with (\u2197) will open a new tab in your browser.`)("iconDef",a.faUser)("buttonColor","lightgray")("isExternalLink",!1)("clickEvent",a.onClickAboutMe)("description","Click to view information about me, my skills, and my projects."),re(),Ce("name","Shaders")("panelText","")("iconUrl","assets/images/ShaderIconAlt.png")("buttonColor","gray")("isExternalLink",!1)("clickEvent",a.onClickShaders)("description",`Click to view a selection of some of my favorite 2D shaders (programatically-generated effects).
 
 You can hover over the preview images to animate them, and scroll down to see more.
