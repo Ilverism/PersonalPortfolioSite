@@ -27,6 +27,7 @@ app-shader-background {
 
     margin-left:1vw;
 
+    overflow-x: hidden;
 }
 
 
@@ -38,6 +39,9 @@ app-shader-background {
     overflow-y: hidden; /* Allows vertical scrolling */
     max-height: 80vh; /* Maximum height before scrolling */
     padding: 5vw;
+
+    overflow-x: hidden;
+    
 }
 
 
@@ -45,7 +49,7 @@ ng-scrollbar {
 
     visibility: always;
 
-
+    overflow-x: hidden;
 
     width : 40%;
     height : 100%;
@@ -93,6 +97,8 @@ ng-scrollbar {
     }
 
 .scrollbar-elements {
+
+    overflow-x: hidden;
 
     padding-left:2vw;
 

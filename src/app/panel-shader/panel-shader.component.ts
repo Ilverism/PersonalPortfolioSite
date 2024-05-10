@@ -35,6 +35,11 @@ export class PanelShaderComponent extends PanelComponent {
       fragmentShaderFilepath: "assets/shaders/shd_InnerFire.frag",
     },
     {
+      name: "T U R B U L E N C E",
+      vertexShaderFilepath : "assets/shaders/shd_Default.vert",
+      fragmentShaderFilepath: "assets/shaders/shd_Turbulence.frag",
+    },
+    {
       name: "T H R U S T E R S",
       vertexShaderFilepath : "assets/shaders/shd_Default.vert",
       fragmentShaderFilepath: "assets/shaders/shd_Thrusters.frag",
@@ -68,12 +73,7 @@ export class PanelShaderComponent extends PanelComponent {
       name: "G A L A C T I C - S E A M",
       vertexShaderFilepath : "assets/shaders/shd_Default.vert",
       fragmentShaderFilepath: "assets/shaders/shd_GalacticSeam.frag",
-    },
-    {
-      name: "T U R B U L E N C E",
-      vertexShaderFilepath : "assets/shaders/shd_Default.vert",
-      fragmentShaderFilepath: "assets/shaders/shd_Turbulence.frag",
-    },
+    }
   ];
 
 }

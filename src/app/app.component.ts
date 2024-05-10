@@ -43,10 +43,11 @@ export class AppComponent {
   //Title
   title = 'PersonalPortfolioSite';
 
-  panelTypeTargetName: string = "Default";
+  panelTypeTargetName: string = "About";
   constructor() { 
+    this.onClickAboutMe = this.onClickAboutMe.bind(this);
     this.onClickShaders = this.onClickShaders.bind(this);
-  }
+    }
   
   panelText:string = "Hello! Welcome to my website!\n\nClick the buttons on the left to view additional information and content.\n\nButtons marked with (↗) will open a new tab in your browser.";
   tabDescriptionText:string = "''";
@@ -71,6 +72,10 @@ export class AppComponent {
     this.tabDescriptionText = "''";
     }
 
+  onClickAboutMe(event: Event) {
+    this.panelTypeTargetName = "About";
+    console.log("About Me Clicked, Panel Type: " + this.panelTypeTargetName);
+    }
   onClickShaders(event: Event) {
     this.panelTypeTargetName = "shaderPanel";
     }

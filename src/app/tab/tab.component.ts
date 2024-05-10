@@ -58,6 +58,4 @@ export class TabComponent {
     this.outputTabID.emit(String(this.tabID));
     }
 
-
-
   }

@@ -15,13 +15,14 @@
 
                 <app-tab
                     [name]="'About'"
-                    [panelText]="'[TODO: Display About Page...]'"
+                    [panelText]="'Hello, welcome to my website!\n\nI\'m Aidan Cusack, a computer science student at the Rochester Institute of Technology and game-development hobbyist currently seeking a co-op/paid internship opportunity in related fields.\n\nClick the buttons on the left to view additional information and content.\n\nButtons marked with (↗) will open a new tab in your browser.'"
                     (panelTextOut)="handlePanelTextEvent($event)"
                     [iconDef]="faUser"
                     [buttonColor]="'lightgray'"
                     [isExternalLink]="false"
+                    [clickEvent]="onClickAboutMe"
                     (outputTabID)="handleTabIDEvent($event)"
-                    [description]="'About Me...'"
+                    [description]="'Click to view information about me, my skills, and my projects.'"
                     (panelDescriptionOut)="handleTabDescriptionEvent($event)"
                     (panelDescriptionClear)="handleClearTabDescriptionEvent($event)"
                     >
@@ -36,7 +37,7 @@
                     [isExternalLink]="false"
                     [clickEvent]="onClickShaders"
                     (outputTabID)="handleTabIDEvent($event)"
-                    [description]="'View a selection of some of my favorite 2D shaders (programatically-generated effects).\n\nYou can hover over the preview images to animate them, and scroll down to view more.'"
+                    [description]="'Click to view a selection of some of my favorite 2D shaders (programatically-generated effects).\n\nYou can hover over the preview images to animate them, and scroll down to see more.\n\nThe shaders could take a moment to load, and may not display correctly on some devices.'"
                     (panelDescriptionOut)="handleTabDescriptionEvent($event)"
                     (panelDescriptionClear)="handleClearTabDescriptionEvent($event)"
                     >
@@ -49,7 +50,7 @@
                     [isExternalLink]="true"
                     [clickEvent]="onClickRingWar"
                     (outputTabID)="handleTabIDEvent($event)"
-                    [description]="'View the Steam page for my first publically-released game, Ring War.\n\nRing War is a 2D top-down online multiplayer shooter with a focus on fast-paced and strategic gameplay. Players can battle against up to 15 other human or AI opponents, or alongside them as teammates.\n\nThe game entered Early Access in 2022, and remains in development between other projects.'"
+                    [description]="'Click to view the Steam page for my first publically-released game, Ring War.\n\nRing War is a 2D top-down online multiplayer shooter with a focus on fast-paced and strategic gameplay. Players can battle against up to 15 other human or AI opponents, or alongside them as teammates.\n\nThe game entered Early Access in 2022, and remains in development between other projects.'"
                     (panelDescriptionOut)="handleTabDescriptionEvent($event)"
                     (panelDescriptionClear)="handleClearTabDescriptionEvent($event)"
                     >
@@ -62,6 +63,9 @@
                     [isExternalLink]="true"
                     [clickEvent]="onClickLinkedIn"
                     (outputTabID)="handleTabIDEvent($event)"
+                    [description]="'Click to view my LinkedIn page.\n\nRemember to Connect with me! 🙂'"
+                    (panelDescriptionOut)="handleTabDescriptionEvent($event)"
+                    (panelDescriptionClear)="handleClearTabDescriptionEvent($event)"
                     >
                 </app-tab>
 
@@ -72,6 +76,9 @@
                     [isExternalLink]="true"
                     [clickEvent]="onClickGitHub"
                     (outputTabID)="handleTabIDEvent($event)"
+                    [description]="'Click to view my GitHub page.\n\nI display a number of personal and academic projects here, demonstrating some of my skills in programming, game development, and more.'"
+                    (panelDescriptionOut)="handleTabDescriptionEvent($event)"
+                    (panelDescriptionClear)="handleClearTabDescriptionEvent($event)"
                     >
                 </app-tab>
 
@@ -83,6 +90,9 @@
                     [isExternalLink]="true"
                     [clickEvent]="onClickYouTube"
                     (outputTabID)="handleTabIDEvent($event)"
+                    [description]="'Click to view my Official Artist Channel on YouTube.\n\nI create and upload original instrumental music here.'"
+                    (panelDescriptionOut)="handleTabDescriptionEvent($event)"
+                    (panelDescriptionClear)="handleClearTabDescriptionEvent($event)"
                     >
                 </app-tab>
 
@@ -92,7 +102,7 @@
         </ng-scrollbar>
 
 
-        <app-panel *ngIf="tabDescriptionText!='\'\''" [panelText]="tabDescriptionText" [backgroundColor]="'#111111EE'"></app-panel>
+        <app-panel *ngIf="tabDescriptionText!='\'\''" [panelText]="tabDescriptionText" [backgroundColor]="'#111111E0'" [style.scale]="0.97"></app-panel>
 
         <div [hidden]="tabDescriptionText!='\'\''" [ngSwitch]="this.panelTypeTargetName">
             <app-panel-shader *ngSwitchCase="'shaderPanel'" [panelText]="panelText"></app-panel-shader>
